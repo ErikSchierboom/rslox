@@ -1,17 +1,17 @@
 mod scanner;
 
 use std::any::Any;
-use std::env::args;
+use std::env::{args, args_os};
 use std::fs;
 use std::io::stdin;
 use std::process::exit;
 
 fn main() {
     // TODO: convert to match
-    if args().len() > 1 {
+    if args().len() > 2 {
         eprintln!("Usage: rslox [script]");
         exit(64);
-    } else if args().len() == 1 {
+    } else if args().len() == 2 {
         run_file(args().nth(1).unwrap())
     } else {
         run_prompt()
